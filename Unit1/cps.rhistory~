@@ -1,0 +1,512 @@
+# Create a new variable that is "years since 1990"
+us_select$time <- us_select$year - 1990
+# Select the first 10 years (from 1990 to 1999) and name the new data frame "us_select_10"
+us_select_10 <- us_select[us_select$time < 10,]
+# Use a function to fit an exponential and logistic model for 1990-1999
+expFit(us_select_10$time, us_select_10$internet.mil)
+logisticFit(us_select_10$time, us_select_10$internet.mil)
+# Based on the prior model parameters, predict the number of internet users in 2006
+e <- expFitPred(us_select_10$time, us_select_10$internet.mil, 16)
+l <- logisticFitPred(us_select_10$time, us_select_10$internet.mil, 16)
+# Show how many internet users the US actually had in 2006
+us_select[us_select$time == 16, c("Country", "year", "internet.mil")]
+# Calculate the residuals for each model
+us_select$internet.mil[us_select$time == 16] - e
+us_select$internet.mil[us_select$time == 16] - l
+# Look at the model fits for all available data (1990 to 2012)
+expFit(us_select$time, us_select$internet.mil)
+logisticFit(us_select$time, us_select$internet.mil)
+# Which model fits the best?
+tripleFit(us_select$time, us_select$internet.mil)
+# How many internet users would the US have had in 2012 if you had used the original exponential model?
+expFitPred(us_select_10$time, us_select_10$internet.mil, 22)
+expFitPred(us_select_10$time, us_select_10$internet.mil, 22)
+expFitPred(us_select_10$time, us_select_10$internet.mil, 22)
+ee <- expFitPred(us_select_10$time, us_select_10$internet.mil, 22)
+View(world)
+inet_users_prop <- world$internet.users / world$population
+head inet_users_prop
+head(inet_users_prop)
+inet_users_prop
+world_1990_up <- world[world$year >= 1990,]
+world$internet.users_prop = world$internet.users / world$population
+View(world)
+View(world_1990_up)
+world_1990_up <- world[world$year >= 1990,]
+View(world_1990_up)
+world_1990_up$years_since_1990 <- world_1990_up$year - 1990
+View(world_1990_up)
+denmark <- world_1990_up[world_1990_up$Country = 'Denmark',]
+denmark <- world_1990_up[world_1990_up$Country == 'Denmark',]
+belarus <- world_1990_up[world_1990_up$Country == 'Belarus',]
+expFit(denmark$years_since_1990, denmark$internet.users_prop)
+logisticFit(denmark$years_since_1990, denmark$internet.users_prop)
+expFit(belarus$years_since_1990, belarus$internet.users_prop)
+logisticFit(belarus$years_since_1990, belarus$internet.users_prop)
+expFit(denmark$years_since_1990, denmark$internet.users_prop)
+(denmark$years_since_1990, denmark$internet.users_prop)
+logisticFit(denmark$years_since_1990, denmark$internet.users_prop)
+expFit(belarus$years_since_1990, belarus$internet.users_prop)
+logisticFit(belarus$years_since_1990, belarus$internet.users_prop)
+logisticFit(denmark$years_since_1990, denmark$internet.users_prop)
+ln(1)
+log(1)
+log((0.1 * 308.8345)/(0.89668-0.1))/log(1.73124)
+logisticFitPred(denmark$years_since_1990, denmark$internet.users_prop)
+logisticFitPred(denmark$years_since_1990, denmark$internet.users_prop, 7)
+logisticFitPred(denmark$years_since_1990, denmark$internet.users_prop, 6)
+logisticFitPred(denmark$years_since_1990, denmark$internet.users_prop, 8)
+logisticFitPred(denmark$years_since_1990, denmark$internet.users_prop, 7)
+logisticFit(belarus$years_since_1990, belarus$internet.users_prop)
+log((0.1 * 422.4322)/(0.8987-0.1))/log(1.31884)
+logisticFitPred(belarus$years_since_1990, belarus$internet.users_prop, 14)
+logisticFitPred(belarus$years_since_1990, belarus$internet.users_prop, 15)
+logisticFit(denmark$years_since_1990, denmark$internet.users_prop)
+logisticFitPred(denmark$years_since_1990, denmark$internet.users_prop, 7)
+logisticFitPred(denmark$years_since_1990, denmark$internet.users_prop, 6)
+logisticFitPred(denmark$years_since_1990, denmark$internet.users_prop, 7)
+logisticFitPred(belarus$years_since_1990, belarus$internet.users_prop, 14)
+logisticFitPred(belarus$years_since_1990, belarus$internet.users_prop, 15)
+logisticFitPred(denmark$years_since_1990, denmark$internet.users_prop, 7)
+logisticFitPred(denmark$years_since_1990, denmark$internet.users_prop, 14)
+logisticFitPred(denmark$years_since_1990, denmark$internet.users_prop, 15)
+logisticFitPred(belarus$years_since_1990, belarus$internet.users_prop, 15)
+logisticFitPred(belarus$years_since_1990, belarus$internet.users_prop, 30)
+logisticFitPred(belarus$years_since_1990, belarus$internet.users_prop, 29)
+logisticFitPred(belarus$years_since_1990, belarus$internet.users_prop, 30)
+world$internet.users_prop = world$internet.users / world$population
+world_1990_up <- world[world$year >= 1990,]
+world_1990_up$years_since_1990 <- world_1990_up$year - 1990
+denmark <- world_1990_up[world_1990_up$Country == 'Denmark',]
+belarus <- world_1990_up[world_1990_up$Country == 'Belarus',]
+# denmark
+expFit(denmark$years_since_1990, denmark$internet.users_prop)
+logisticFit(denmark$years_since_1990, denmark$internet.users_prop)
+logisticFitPred(denmark$years_since_1990, denmark$internet.users_prop, 7)
+logisticFitPred(denmark$years_since_1990, denmark$internet.users_prop, 15)
+# belarus
+expFit(belarus$years_since_1990, belarus$internet.users_prop)
+logisticFit(belarus$years_since_1990, belarus$internet.users_prop)
+logisticFitPred(belarus$years_since_1990, belarus$internet.users_prop, 30)
+logisticFit(belarus$years_since_1990, belarus$internet.users_prop)
+logisticFitPred(belarus$years_since_1990, belarus$internet.users_prop, 15)
+logisticFitPred(belarus$years_since_1990, belarus$internet.users_prop, 14)
+logisticFitPred(belarus$years_since_1990, belarus$internet.users_prop, 30)
+logisticFitPred(belarus$years_since_1990, belarus$internet.users_prop, 29)
+29 - 14
+logisticFitPred(denmark$years_since_1990, denmark$internet.users_prop, 7)
+logisticFitPred(denmark$years_since_1990, denmark$internet.users_prop, 6)
+logisticFitPred(denmark$years_since_1990, denmark$internet.users_prop, 7)
+logisticFitPred(denmark$years_since_1990, denmark$internet.users_prop, 14)
+logisticFitPred(denmark$years_since_1990, denmark$internet.users_prop, 15)
+logisticFitPred(denmark$years_since_1990, denmark$internet.users_prop, 14)
+cls
+brazil <- world[which(world$Country == 'Brazil' & world$year >= 1995),]
+View(brazil)
+brazil$year <- brazil$year - 1995
+view(brazil)
+View(brazil)
+brazil$mobile.users <- brazil$mobile.users / 1000000
+View(brazil)
+brazil$mobile.users[brazil$year == 5]
+which(brazil$mobile.users >= 100)
+brazil$year <- brazil$year + 1995
+View(brazil)
+brazil[13,]
+brazil$time <- brazil$year - 1995
+tripleFit(brazil$time, brazil$mobile.users)
+logisticFitPred(brazil$time, brazil$mobile.users)
+logisticFitPred(brazil$time, brazil$mobile.users, 2025 - 1995)
+367 - 257
+367 / 257
+257 * 1.42
+257 * 1.428
+257 * 1.428016
+257 * 1.49
+257 * 1.43
+2^2
+2^3
+76.64*1.46^14
+3273.31 / (1 + 43.59 * 1.57 ^ 14)
+3273.31 / (1 + 43.59 * (1.57 ^ 14))
+3273.31 / (1 + 43.59 * (1.57 ^ -14))
+4379 - 15325
+4379 - 3034
+(45 - 25) / (3-1)
+45 / 25 - 1
+sqrt(4)
+sqrt(45/25)
+25 / 1.34
+45 / 1.34 ^ 3
+45 / (1.34 ^ 3)
+25 / 1.34
+2012 - 1996
+2012 - 1995
+10 * 17 + 15
+19 * 1.34 ^ 17
+1.34 ^ 17
+19 * 1.34 ^ 17
+19 * 1.34 ^ 7
+log(152.10) / log(2.17)
+2000 / (1 + 152.10 * 2.17 ^ -9)
+`2015.02.15_Personal.Expense` <- read.csv("~/Dropbox/ExpenseManager/CSV/2015-02-15_Personal Expense.csv")
+View(`2015.02.15_Personal.Expense`)
+`2015.02.15_Personal_Expense` <- read.csv("~/Dropbox/ExpenseManager/analysis/2015-02-15_Personal_Expense.csv")
+View(`2015.02.15_Personal_Expense`)
+`2015.02.15_Personal_Expense` <- read.csv("~/Dropbox/ExpenseManager/analysis/2015-02-15_Personal_Expense.csv")
+View(`2015.02.15_Personal_Expense`)
+View(`2015.02.15_Personal_Expense`)
+View(`2015.02.15_Personal_Expense`)
+save.image("~/Dropbox/ExpenseManager/analysis/2015-02-15_Personal_Expense.RData")
+View(`2015.02.15_Personal_Expense`)
+head(data)
+data <- 2015.02.15_Personal_expense
+View(`2015.02.15_Personal_Expense`)
+View(`2015.02.15_Personal_Expense`)
+head(data)
+head(data)
+data
+data[0]
+View(`2015.02.15_Personal_Expense`)
+View(`2015.02.15_Personal_Expense`)
+View(`2015.02.15_Personal_Expense`)
+View(`2015.02.15_Personal_Expense`)
+load("~/Dropbox/ExpenseManager/analysis/2015-02-15_Personal_Expense.RData")
+View(`2015.02.15_Personal_Expense`)
+head(`2015.02.15_Personal_Expense`)
+tabe(`2015.02.15_Personal_Expense`)
+table(`2015.02.15_Personal_Expense`)
+data <- `2015.02.15_Personal_Expense`
+View(`2015.02.15_Personal_Expense`)
+View(data)
+type
+help(type)
+typeof(data[0,[])
+typeof(data[0,0)
+typeof(data[0,0])
+data$Date
+data$Date[0]
+as.Date(data$Date[0])
+typeof(data$Date[0,0])
+typeof(data$Date[0])
+as.String(data$Date[0])
+as.character(data$Date[0])
+monthly = c(36518.40, 31904.14, 31932.83, 28319.32, 32883.77)
+sum(monthly)
+average(monthly)
+mean(monthly)
+monthly_expenses <- monthly
+m <- mean(monthly) + 20000
+m
+annual <- m * 12
+nestegg <- annual * 30
+2^2
+2^3
+r <- 1.05
+P <- nestegg
+P * r^30
+monthly <- m
+P
+81391723 / 35
+T <- P * r^30
+T
+annual_T <- T / 35
+annual_T
+monthly_T <- annual_T / 12
+monthly_T
+T
+annual_T
+monthly_T
+115000 * 1.03^30
+115000 * 12
+1380000 * 1.03^30
+1380000 * 1.03^15
+1380000 * 1.03^16
+1380000 * 1.03^17
+1380000 * 1.03^18
+mean(monthly_expenses)
+1500000 * 1.15^35
+getwd()
+getwd()
+load("~/Code/AnalyticsEdge/StockDynamics/BoeingStock.csv")
+Boeing <- read.csv("~/Code/AnalyticsEdge/StockDynamics/BoeingStock.csv")
+View(Boeing)
+IBM <- read.csv("~/Code/AnalyticsEdge/StockDynamics/IBMStock.csv")
+View(IBM)
+setwd("~/Code/AnalyticsEdge/StockDynamics")
+setwd("~/Code/AnalyticsEdge/StockDynamics")
+CocaCola <- read.csv("~/Code/AnalyticsEdge/StockDynamics/CocaColaStock.csv")
+View(CocaCola)
+ProcterGamble <- read.csv("~/Code/AnalyticsEdge/StockDynamics/ProcterGambleStock.csv")
+View(ProcterGamble)
+GE <- read.csv("~/Code/AnalyticsEdge/StockDynamics/GEStock.csv")
+View(GE)
+IBM$Date = as.Date(IBM$Date, "%m/%d/%y")
+GE$Date = as.Date(GE$Date, "%m/%d/%y")
+CocaCola$Date = as.Date(CocaCola$Date, "%m/%d/%y")
+ProcterGamble$Date = as.Date(ProcterGamble$Date, "%m/%d/%y")
+Boeing$Date = as.Date(Boeing$Date, "%m/%d/%y")
+View(GE)
+View(Boeing)
+str(GE)
+summary(GE)
+summary(IBM)
+summary(GE)
+summary(CocaCola)
+summary(Boeing)
+summary(ProcterGamble)
+summary(ProcterGamble$StockPrice)
+sd(ProcterGamble$StockPrice)
+plot(CocaCola$Date, CocaCola$Price)
+plot(CocaCola$Date~CocaCola$Price)
+plot(CocaCola$Date, CocaCola$Price)
+plot(CocaCola$Date, CocaCola$Price)
+plot(CocaCola$)
+plot(CocaCola)
+plot(CocaCola$Date, CocaCola$StockPrice)
+plot(CocaCola$Date, CocaCola$StockPrice, type="l")
+View(CocaCola)
+View(CocaCola)
+summary(CocaCola)
+which(max(CocaCola$StockPrice))
+which.max(CocaCola$StockPrice)
+CocaCola$Date[which.max(CocaCola$StockPrice)]
+CocaCola$Date[which.min(CocaCola$StockPrice)]
+lines(ProcterGamble$Date, ProcterGamble$StockPrice)
+plot(CocaCola$Date, CocaCola$StockPrice, type="l", col="red")
+lines(ProcterGamble$Date, ProcterGamble$StockPrice, col="blue")
+?abline
+?lwd
+abline(v=as.Date(c("2000-03-01")), lwd=2)
+abline(v=as.Date(c("2000-03-01")), lwd=2, col="yellow")
+abline(v=as.Date(c("1983")), lwd=2, col="yellow")
+abline(v=as.Date(c("1983-01-01")), lwd=2, col="yellow")
+abline(v=as.Date(c("1983-01-01")), lwd=2, col="green")
+abline(v=as.Date(c("1983-12-31")), lwd=2, col="green")
+plot(CocaCola$Date[301:432], CocaCola$StockPrice[301:432], type="l", col="red", ylim=c(0,210))
+plot(ProcterGamble$Date[301:432], ProcterGamble$StockPrice[301:432], type="l", col="red", ylim=c(0,210))
+plot(CocaCola$Date[301:432], CocaCola$StockPrice[301:432], type="l", col="red", ylim=c(0,210))
+lines(ProcterGamble$Date[301:432], ProcterGamble$StockPrice[301:432], type="l", col="blue", ylim=c(0,210))
+lines(GE$Date[301:432], GE$StockPrice[301:432], type="l", col="green", ylim=c(0,210))
+lines(IBM$Date[301:432], IBM$StockPrice[301:432], type="l", col="orange", ylim=c(0,210))
+lines(Boeing$Date[301:432], Boeing$StockPrice[301:432], type="l", col="black", ylim=c(0,210))
+text(locator(), labels=c("CC","PG","GE","IB","BO"))
+text(locator(), labels=c("CC","PG","GE","IB","BO"))
+text(locator(), labels=c("CC","PG","GE","IB","BO"))
+plot(CocaCola$Date[301:432], CocaCola$StockPrice[301:432], type="l", col="red", ylim=c(0,210))
+lines(ProcterGamble$Date[301:432], ProcterGamble$StockPrice[301:432], type="l", col="blue", ylim=c(0,210))
+lines(GE$Date[301:432], GE$StockPrice[301:432], type="l", col="green", ylim=c(0,210))
+lines(IBM$Date[301:432], IBM$StockPrice[301:432], type="l", col="orange", ylim=c(0,210))
+lines(Boeing$Date[301:432], Boeing$StockPrice[301:432], type="l", col="black", ylim=c(0,210))
+plot(CocaCola$Date[301:432], CocaCola$StockPrice[301:432], type="l", col="red", ylim=c(0,210))
+plot(CocaCola$Date[301:432], CocaCola$StockPrice[301:432], type="l", col="red", ylim=c(0,210))
+lines(ProcterGamble$Date[301:432], ProcterGamble$StockPrice[301:432], type="l", col="blue", ylim=c(0,210))
+lines(GE$Date[301:432], GE$StockPrice[301:432], type="l", col="green", ylim=c(0,210))
+lines(IBM$Date[301:432], IBM$StockPrice[301:432], type="l", col="orange", ylim=c(0,210))
+lines(Boeing$Date[301:432], Boeing$StockPrice[301:432], type="l", col="black", ylim=c(0,210))
+colors()
+abline(v=as.Date(c("2000-03-01")), lwd=2)
+abline(v=as.Date(c("2000-03-01")), lwd=2, col=slategray)
+abline(v=as.Date(c("2000-03-01")), lwd=2, col=slategrezy)
+abline(v=as.Date(c("2000-03-01")), lwd=2, col=slategrey)
+abline(v=as.Date(c("2000-03-01")), lwd=2, col="slategray")
+abline(v=as.Date(c("2000-03-01")), lwd=2, col="violet")
+abline(v=as.Date(c("1997-09-01", "1997-11-30")), lwd=2, col="violet")
+abline(v=as.Date(c("2004-01-01", "2005-12-31")), lwd=2, col="violet")
+tapply(IBM$StockPrice, months(IBM$Date), mean)
+mean(IBM$StockPrice)
+sort(tapply(IBM$StockPrice, months(IBM$Date), mean))
+sort(tapply(GE$StockPrice, months(GE$Date), mean))
+sort(tapply(CocaCola$StockPrice, months(CocaCola$Date), mean))
+tapply(CocaCola$StockPrice, months(CocaCola$Date), mean))[1]
+tapply(GE$StockPrice, months(GE$Date), mean))
+tapply(CocaCola$StockPrice, months(CocaCola$Date), mean))
+tapply(CocaCola$StockPrice, months(CocaCola$Date), mean)
+tapply(GE$StockPrice, months(GE$Date), mean)
+tapply(CocaCola$StockPrice, months(CocaCola$Date), mean)
+which.max(tapply(GE$StockPrice, months(GE$Date), mean))
+which.max(tapply(CocaCola$StockPrice, months(CocaCola$Date), mean))
+tapply(CocaCola$StockPrice, months(CocaCola$Date), mean)
+tapply(ProcterGamble$StockPrice, months(ProcterGamble$Date), mean)
+tapply(GE$StockPrice, months(GE$Date), mean)
+tapply(IBM$StockPrice, months(IBM$Date), mean)
+tapply(Boeing$StockPrice, months(Boeing$Date), mean)
+sort(tapply(CocaCola$StockPrice, months(CocaCola$Date), mean))
+sort(tapply(ProcterGamble$StockPrice, months(ProcterGamble$Date), mean))
+sort(tapply(GE$StockPrice, months(GE$Date), mean))
+sort(tapply(IBM$StockPrice, months(IBM$Date), mean))
+sort(tapply(Boeing$StockPrice, months(Boeing$Date), mean))
+sort(tapply(CocaCola$StockPrice, months(CocaCola$Date), mean))["December", "November"]
+sort(tapply(CocaCola$StockPrice, months(CocaCola$Date), mean))
+sort(tapply(ProcterGamble$StockPrice, months(ProcterGamble$Date), mean))
+sort(tapply(GE$StockPrice, months(GE$Date), mean))
+sort(tapply(IBM$StockPrice, months(IBM$Date), mean))
+sort(tapply(Boeing$StockPrice, months(Boeing$Date), mean))
+setwd("~/Code/AnalyticsEdge")
+CPS = read.scv("CPSData.csv")
+CPS = read.csv("CPSData.csv")
+getwd()
+CPS = read.csv("CPSData.csv")
+str(CPS)
+table(CPS$Industry)
+summary(CPS$Industry)
+which.max(CPS$Industry)
+table.max(CPS$Industry)
+max(CPS$Industry)
+which.max(summary(CPS$Industry))
+which.max(summary(CPS$Industry), na.rm=TRUE)
+which.max(summary(CPS$Industry, na.rm=TRUE))
+(CPS$Industry, na.rm=TRUE)
+CPS$Industry, na.rm=TRUE)
+CPS$Industry, na.rm=TRUE
+summary(CPS$Industry, na.rm=TRUE)
+sort(summary(CPS$Industry))
+sort(table(CPS$State))
+str(CPS)
+table(CPS$Citizenship)
+table.prop(table(CPS$Citizenship))
+prop.table(table(CPS$Citizenship))
+0.88832615 + 0.05386818 + 0.05780567
+0.88832615 + 0.05386818
+Hispanic = CPS[CPS$Hispanic == 1]
+Hispanic = CPS[CPS$Hispanic == 1,]
+View(Hispanic)
+table(CPS$Race)
+table(Hispanic$Race)
+table(Hispanic$Race > 250)
+table(Hispanic$Race)[1]
+table(Hispanic$Race > 250)
+table(Hispanic$Race)
+summary(CPS)
+table(CPS$Region, is.na(CPS$Married))
+table(CPS$Sex, is.na(CPS$Married))
+table(CPS$Age, is.na(CPS$Married))
+table(CPS$Age, is.na(CPS$Married))$TRUE
+table(CPS$Citizenship, is.na(CPS$Married))
+prop.table(table(CPS$Citizenship, is.na(CPS$Married)))
+prop.table(table(CPS$State, is.na(CPS$MetroAreaCode))
+table(CPS$State, is.na(CPS$MetroAreaCode)
+table(CPS$State, is.na(CPS$MetroAreaCode)
+)
+table(CPS$State, is.na(CPS$MetroAreaCode))
+prop.table(table(CPS$State, is.na(CPS$MetroAreaCode)))
+sort(prop.table(table(CPS$State, is.na(CPS$MetroAreaCode))))
+which[sort(prop.table(table(CPS$State, is.na(CPS$MetroAreaCode))))]
+prop.table(table(CPS$State, is.na(CPS$MetroAreaCode)))
+max(prop.table(table(CPS$State, is.na(CPS$MetroAreaCode))))
+T = prop.table(table(CPS$State, is.na(CPS$MetroAreaCode)))
+T = prop.table(table(CPS$Region, is.na(CPS$MetroAreaCode)))
+T
+tapply(is.na(CPS$MetroAreaCode), CPS$State, mean)
+sort(tapply(is.na(CPS$MetroAreaCode), CPS$State, mean))
+MetroAreaCode = read.csv("MetroAreaCodes.csv")
+CountryOfBirthCode = read.csv("CountryCodes.csv")
+View(MetroAreaCode)
+MetroAreaMap = MetroAreaCode
+CountryMap = CountryOfBirthCode
+str(MetroAreaMap)
+str(CountryMap)
+CPS = merge(CPS, MetroAreaMap, by.x="MetroAreaCode", by.y="Code", all.x=TRUE)
+summary(CPS)
+str(CPS)
+str(MetroAreaMap)
+table(is.na(CPS$MetroArea))
+table(CPS$MetroArea)
+sort(table(CPS$MetroArea))
+which.max(table(CPS$MetroArea))
+CPS$MetroArea == "Atlanta-Sandy Springs-Marietta, GA"
+table(CPS$MetroArea == "Atlanta-Sandy Springs-Marietta, GA")
+metro4 = CPS$MetroArea[CPS$MetroArea == "Atlanta-Sandy Springs-Marietta, GA" | CPS$MetroArea == "Baltimore-Towson, MD" | CPS$MetroArea == "Boston-Cambridge-Quincy, MA-NH" | CPS$MetroArea == "San Francisco-Oakland-Fremont, CA"]
+table(metro4)
+droplevels(table(metro4))
+history
+table(CPS$MetroArea)
+sort(table(CPS$MetroArea))
+View(CPS)
+tapply(CPS$Hispanic, CPS$MetroArea, mean)
+sort(tapply(CPS$Hispanic, CPS$MetroArea, mean))
+tapply(CPS$Race == "Asian", CPS$MetroArea, mean)
+sort(tapply(CPS$Race == "Asian", CPS$MetroArea, mean))
+sort(tapply(CPS$Education == "No high school diploma", CPS$MetroArea, mean, na.rm=TRUE))
+?sort
+sort(tapply(CPS$Education == "No high school diploma", CPS$MetroArea, mean, na.rm=TRUE, decreasing=TRUE))
+sort(tapply(CPS$Education == "No high school diploma", CPS$MetroArea, mean, na.rm=TRUE, decreasing=FALSE))
+sort(tapply(CPS$Education == "No high school diploma", CPS$MetroArea, mean, na.rm=TRUE), decreasing=TRUE)
+sort(tapply(CPS$Education == "No high school diploma", CPS$MetroArea, mean, na.rm=TRUE), decreasing=FALSE)
+sort(tapply(CPS$Education == "No high school diploma", CPS$MetroArea, mean, na.rm=TRUE), decreasing=TRUE)
+View(CountryMap)
+CPS = merge(CPS, CountryMap, by.x="CountryOfBirthCode", by.y="Code", all.x=TRUE)
+View(CPS)
+View(CountryMap)
+table(is.na(CPS$Country))
+table(CPS$Country))
+table(CPS$Country)
+sort(table(CPS$Country))
+tapply(CPS$MetroArea == "New York-Northern New Jersey-Long Island, NY-NJ-PA", CPS$Country, mean)
+sort(tapply(CPS$MetroArea == "New York-Northern New Jersey-Long Island, NY-NJ-PA", CPS$Country, mean))
+sort(tapply(CPS$MetroArea == "New York-Northern New Jersey-Long Island, NY-NJ-PA", CPS$Country != "United States", mean))
+mean(CPS$MetroArea == "New York-Northern New Jersey-Long Island, NY-NJ-PA" & CPS$Country != "United States")
+mean(CPS$MetroArea == "New York-Northern New Jersey-Long Island, NY-NJ-PA" & CPS$Country != "United States", na.rm=TRUE)
+CPS$MetroArea == "New York-Northern New Jersey-Long Island, NY-NJ-PA" & CPS$Country != "United States"
+East = CPS[CPS$MetroArea == "New York-Northern New Jersey-Long Island, NY-NJ-PA",]
+View(East)
+CPS = read.csv("CPSData.csv")
+CPS = merge(CPS, MetroAreaMap, by.x="MetroAreaCode", by.y="Code", all.x=TRUE)
+View(CPS)
+View(CPS)
+CPS = merge(CPS, CountryMap, by.x="CountryOfBirthCode", by.y="Code", all.x=TRUE)
+View(CPS)
+table(CPS$Country)
+table(CPS$Country == "United States")
+table(CPS$Country == "United States" & CPS$MetroArea == "New York-Northern New Jersey-Long Island, NY-NJ-PA")
+table(CPS$Country != "United States" & CPS$MetroArea == "New York-Northern New Jersey-Long Island, NY-NJ-PA")
+prop.table(table(CPS$Country != "United States" & CPS$MetroArea == "New York-Northern New Jersey-Long Island, NY-NJ-PA"))
+prop.table(table(CPS$Country != "United States" & CPS$MetroArea == "New York-Northern New Jersey-Long Island, NY-NJ-PA", na.rm=TRUE))
+prop.table(table(CPS$Country != "United States" & CPS$MetroArea == "New York-Northern New Jersey-Long Island, NY-NJ-PA"), na.rm=TRUE)
+prop.table(table(CPS$Country != "United States" & CPS$MetroArea == "New York-Northern New Jersey-Long Island, NY-NJ-PA" & CPS$Country != NA)
+)
+East = CPS[CPS$Country != "United States" & CPS$MetroArea = "New York-Northern New Jersey-Long Island, NY-NJ-PA",]
+East = CPS[CPS$Country != "United States" & CPS$MetroArea == "New York-Northern New Jersey-Long Island, NY-NJ-PA",]
+East
+View(East)
+table(Eeast)
+table(East)
+is.na(East)
+table(is.na(East))
+prop.table(table(is.na(East)))
+East = CPS$Country[CPS$MetroArea == "New York-Northern New Jersey-Long Island, NY-NJ-PA""]
+p
+dsakd
+)
+\
+ljlakjdasdjsf
+sadfjaksdlfjlasdms""
+View(CPS)
+East = CPS$Country[CPS$MetroArea == "New York-Northern New Jersey-Long Island, NY-NJ-PA"]
+table(East)
+prop.table(table(East != "United States"))
+tapply(CPS$Country == "India", CPSMetroArea, mean, na.rm=TRUE)
+tapply(CPS$Country == "India", CPS$MetroArea, mean, na.rm=TRUE)
+sort(tapply(CPS$Country == "India", CPS$MetroArea, mean, na.rm=TRUE), na.rm=TRUE)
+sort(tapply(CPS$Country == "India", CPS$MetroArea, mean, na.rm=TRUE))
+sort(tapply(CPS$Country == "India", CPS$MetroArea, sum, na.rm=TRUE))
+sort(tapply(CPS$Country == "India", CPS$MetroArea, mean, na.rm=TRUE))
+sort(tapply(CPS$Country == "India", CPS$MetroArea, sum, na.rm=TRUE))
+sort(tapply(CPS$Country == "Brazil", CPS$MetroArea, sum, na.rm=TRUE))
+sort(tapply(CPS$Country == "Somalia", CPS$MetroArea, sum, na.rm=TRUE))
+India = CPS$MetroArea[CPS$Country == "India"]
+table(India, na.rm=TRUE)
+table(India)
+India = CPS[CPS$Country == "India",]
+View(India)
+tapply(India$Country, India$MetroArea, mean)
+India
+table(India$MetroArea)
+sort(table(India$MetroArea), na.rm=TRUE)
+Brazil = CPS[CPS$Country=="Brazil",]
+View(Brazil)
+sort(table(Brazil), na.rm=TRUE)
+sort(table(Brazil$MetroArea), na.rm=TRUE)
+Somalia <- CPS[CPS$Country == "Somalia",]
+sort(table(Somalia$MetroArea), na.rm=TRUE)
+savehistory("cps.rhistory")

@@ -1,0 +1,3 @@
+[submodule "Kaggle"]
+	path = Kaggle
+	url = git@github.com:cfezequiel/ae-kaggle-apr2015.git
